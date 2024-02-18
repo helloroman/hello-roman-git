@@ -3,12 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #contactForm {
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+    }
+    #contactForm label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    #contactForm input[type="text"], #contactForm textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    #contactForm input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    #contactForm input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <h1>Contact Us</h1>
   <form id="contactForm" action="/submit_contact" method="post">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br>
+    <label for="fullName">Full name:</label><br>
+    <input type="text" id="fullName" name="fullName" required><br>
     <label for="email">Email:</label><br>
     <input type="text" id="email" name="email" required><br>
     <label for="message">Message:</label><br>
@@ -18,11 +52,11 @@
 
   <script>
     document.getElementById('contactForm').addEventListener('submit', function(event) {
-      var name = document.getElementById('name').value;
+      var fullName = document.getElementById('fullName').value;
       var email = document.getElementById('email').value;
       var message = document.getElementById('message').value;
 
-      if (!name || !email || !message) {
+      if (!fullName || !email || !message) {
         alert('Please fill out all fields before submitting.');
         event.preventDefault();
       }
