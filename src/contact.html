@@ -47,6 +47,8 @@
     <input type="text" id="name" name="name" required><br>
     <label for="email">Email:</label><br>
     <input type="text" id="email" name="email" required><br>
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone" required><br>
     <label for="message">Message:</label><br>
     <textarea id="message" name="message" required></textarea><br>
     <input type="submit" value="Submit">
@@ -56,12 +58,13 @@
   document.getElementById('contactForm').addEventListener('submit', function(event) {
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
     var message = document.getElementById('message').value;
 
     // Regular expression for email validation
     var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !message) {
       alert('Please fill out all fields before submitting.');
       event.preventDefault();
     } else if (!emailRegex.test(email)) { // Test the email value against the regex
