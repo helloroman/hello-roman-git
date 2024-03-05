@@ -43,8 +43,8 @@
   <p>Lorem ipsum dolor sit amet</p>
   <img src="https://unsplash.it/300/300" alt="Placeholder image">
   <form id="contactForm" action="/submit_contact" method="post">
-    <label for="fullName">Full name:</label><br>
-    <input type="text" id="fullName" name="fullName" required><br>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
     <label for="email">Email:</label><br>
     <input type="text" id="email" name="email" required><br>
     <label for="message">Message:</label><br>
@@ -54,14 +54,14 @@
 
   <script>
   document.getElementById('contactForm').addEventListener('submit', function(event) {
-    var fullName = document.getElementById('fullName').value;
+    var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var message = document.getElementById('message').value;
 
     // Regular expression for email validation
     var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-    if (!fullName || !email || !message) {
+    if (!name || !email || !message) {
       alert('Please fill out all fields before submitting.');
       event.preventDefault();
     } else if (!emailRegex.test(email)) { // Test the email value against the regex
