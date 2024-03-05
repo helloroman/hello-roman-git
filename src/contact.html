@@ -57,19 +57,15 @@
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;
-    var message = document.getElementById('message').value;
 
     // Regular expression for email validation
     var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !phone) {
       alert('Please fill out all fields before submitting.');
       event.preventDefault();
     } else if (!emailRegex.test(email)) { // Test the email value against the regex
       alert('Please enter a valid email address.');
-      event.preventDefault();
-    } else if (message.length > 400) { // Check if the message is longer than 400 characters
-      alert('Your message should not exceed 400 characters.');
       event.preventDefault();
     }
   });
